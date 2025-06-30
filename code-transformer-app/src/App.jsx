@@ -30,11 +30,7 @@ function App() {
 
   return (
     <>
-      <div className="blob-bg">
-        <div className="blob blob1"></div>
-        <div className="blob blob2"></div>
-        <div className="blob blob3"></div>
-      </div>
+      <div className="nebula-bg"></div>
       <div className="app-container">
         <Header />
         <main className="main-content">
@@ -53,7 +49,8 @@ function App() {
           <CodePanel
             language={targetLang}
             code={csharpCode}
-            isReadOnly={true}
+            setCode={setCsharpCode}
+            isReadOnly={false}
           />
         </main>
         <ActionBar onTransform={handleTransform} />

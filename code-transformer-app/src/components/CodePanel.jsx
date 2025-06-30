@@ -13,12 +13,25 @@ function CodePanel({ language, code, setCode, isReadOnly }) {
       .catch(err => console.error('Failed to copy: ', err));
   };
 
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (setCode) setCode(text);
+    } catch (err) {
+      alert('Failed to paste from clipboard!');
+    }
+  };
+
   return (
     <div className="code-panel">
       <div className="panel-header">
         <h2>{language}</h2>
-        {!isReadOnly ? (
-          <button onClick={handleClear} className="panel-button">Clear</button>
+        {setCode ? (
+          <div className="panel-actions">
+            <button onClick={handleClear} className="panel-button">Clear</button>
+            <button onClick={handlePaste} className="panel-button">Paste</button>
+            <button onClick={handleCopy} className="panel-button">Copy</button>
+          </div>
         ) : (
           <button onClick={handleCopy} className="panel-button">Copy</button>
         )}
