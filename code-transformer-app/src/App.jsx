@@ -29,29 +29,36 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <Header />
-      <main className="main-content">
-        <CodePanel
-          language={sourceLang}
-          code={javaCode}
-          setCode={setJavaCode}
-          isReadOnly={false}
-        />
-        <button className="swap-button center-swap" onClick={handleSwapLanguages} title="Swap Languages">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M7 14H21M21 14L17 10M21 14L17 18" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M21 14H7M7 14L11 10M7 14L11 18" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
-        <CodePanel
-          language={targetLang}
-          code={csharpCode}
-          isReadOnly={true}
-        />
-      </main>
-      <ActionBar onTransform={handleTransform} />
-    </div>
+    <>
+      <div className="blob-bg">
+        <div className="blob blob1"></div>
+        <div className="blob blob2"></div>
+        <div className="blob blob3"></div>
+      </div>
+      <div className="app-container">
+        <Header />
+        <main className="main-content">
+          <CodePanel
+            language={sourceLang}
+            code={javaCode}
+            setCode={setJavaCode}
+            isReadOnly={false}
+          />
+          <button className="swap-button center-swap" onClick={handleSwapLanguages} title="Swap Languages">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 14H21M21 14L17 10M21 14L17 18" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M21 14H7M7 14L11 10M7 14L11 18" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <CodePanel
+            language={targetLang}
+            code={csharpCode}
+            isReadOnly={true}
+          />
+        </main>
+        <ActionBar onTransform={handleTransform} />
+      </div>
+    </>
   );
 }
 
