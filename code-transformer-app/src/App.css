@@ -147,7 +147,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem 0.5rem 0.2rem;
-  background: rgba(58, 58, 66, 0.7);
+  /* background: rgba(58, 58, 66, 0.7); */
   border-bottom: 1px solid var(--border-color);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
