@@ -121,15 +121,24 @@ body {
 }
 
 /* Header - no changes */
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
 .app-header h1 {
   font-family: 'Inter', sans-serif;
   font-size: 2.2rem;
   font-weight: 700;
   letter-spacing: -1px;
-  margin-bottom: 2rem;
+  margin: 0;
   color: var(--primary-accent);
   text-shadow: 0 2px 8px rgba(80,250,123,0.10);
   transition: color 0.3s, text-shadow 0.3s;
+  text-align: center;
 }
 
 /* Language Selector - no changes */
