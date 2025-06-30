@@ -38,7 +38,12 @@ function App() {
           setCode={setJavaCode}
           isReadOnly={false}
         />
-        <button className="swap-button center-swap" onClick={handleSwapLanguages} title="Swap Languages">&#x21C4;</button>
+        <button className="swap-button center-swap" onClick={handleSwapLanguages} title="Swap Languages">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 14H21M21 14L17 10M21 14L17 18" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M21 14H7M7 14L11 10M7 14L11 18" stroke="#18181b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
         <CodePanel
           language={targetLang}
           code={csharpCode}
