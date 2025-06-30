@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
-import LanguageSelector from './components/LanguageSelector';
+// import LanguageSelector from './components/LanguageSelector'; // Removed
 import CodePanel from './components/CodePanel';
 import ActionBar from './components/ActionBar';
 import './App.css';
@@ -31,11 +31,6 @@ function App() {
   return (
     <div className="app-container">
       <Header />
-      <LanguageSelector 
-        sourceLang={sourceLang}
-        targetLang={targetLang}
-        onSwap={handleSwapLanguages}
-      />
       <main className="main-content">
         <CodePanel
           language={sourceLang}
@@ -43,6 +38,7 @@ function App() {
           setCode={setJavaCode}
           isReadOnly={false}
         />
+        <button className="swap-button center-swap" onClick={handleSwapLanguages} title="Swap Languages">&#x21C4;</button>
         <CodePanel
           language={targetLang}
           code={csharpCode}
