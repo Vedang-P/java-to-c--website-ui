@@ -135,7 +135,7 @@ body {
   font-weight: 700;
   letter-spacing: -1px;
   margin: 0;
-  color: var(--primary-accent);
+  color: #22243a;
   text-shadow: 0 2px 8px rgba(80,250,123,0.10);
   transition: color 0.3s, text-shadow 0.3s;
   text-align: center;
@@ -209,7 +209,6 @@ body {
 .code-panel:hover {
   box-shadow: 0 12px 40px 0 rgba(80,250,123,0.18), 0 0 16px 2px rgba(80,250,123,0.18);
   border: 1.5px solid var(--primary-accent);
-  background: rgba(80, 250, 123, 0.10);
 }
 .panel-header {
   display: flex;
@@ -351,4 +350,8 @@ body {
 }
 .main-content > .code-panel:not(:last-child):hover::after {
   background: transparent;
+}
+
+.vanta-blur {
+  filter: blur(32px);
 }

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header';
 // import LanguageSelector from './components/LanguageSelector'; // Removed
 import CodePanel from './components/CodePanel';
 import ActionBar from './components/ActionBar';
 import './App.css';
+import * as THREE from 'three';
+import HALO from 'vanta/dist/vanta.halo.min';
 
 function App() {
   // State for input/output code and language selections
@@ -11,6 +13,35 @@ function App() {
   const [csharpCode, setCsharpCode] = useState('// Generated C# code will appear here.');
   const [sourceLang, setSourceLang] = useState('Java');
   const [targetLang, setTargetLang] = useState('C#');
+
+  // Vanta HALO background
+  const vantaRef = useRef(null);
+  const vantaEffect = useRef(null);
+  useEffect(() => {
+    if (!vantaEffect.current) {
+      vantaEffect.current = HALO({
+        el: vantaRef.current,
+        THREE: THREE,
+        mouseControls: true,
+        touchControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        baseColor: 0x23232b,
+        backgroundColor: 0x18181b,
+        amplitudeFactor: 2.0,
+        xOffset: 0,
+        yOffset: 0,
+        size: 2.5,
+        color: 0x50fa7b,
+      });
+    }
+    return () => {
+      if (vantaEffect.current) {
+        vantaEffect.current.destroy();
+        vantaEffect.current = null;
+      }
+    };
+  }, []);
 
   // Placeholder function for the transformation logic
   const handleTransform = () => {
@@ -30,7 +61,19 @@ function App() {
 
   return (
     <>
-      <div className="nebula-bg"></div>
+      <div
+        ref={vantaRef}
+        className="vanta-bg vanta-blur"
+        style={{
+          position: 'fixed',
+          width: '100vw',
+          height: '100vh',
+          left: 0,
+          top: 0,
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      ></div>
       <div className="app-container">
         <Header />
         <main className="main-content">
